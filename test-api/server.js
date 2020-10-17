@@ -32,7 +32,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQBp6JMO-IZ1OIZyBjESAW8DZb8jwmd7V-6Xnt-Ophmc7bKjWsiRBFpEc2BMkCw5k4nZ8dLWvJXuLkeb80LaCC6sLRnjLPotp3LyWqSrzzWMXOK38dCthj16TV5XrZHFmmi6p7ucTNPLCPZIzWDeEgZaEshZJ8hJgKNQZgK1H1xsYS0');
+spotifyApi.setAccessToken('');
 /* end spotify stuff */
 
 app.get('/api/songs/tracks', (req, res) => {
