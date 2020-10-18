@@ -3,13 +3,16 @@
     <app-nav></app-nav>
     <h3 class="text-center">Recently Played</h3>
     <hr/>
-    <div class="col-sm-4" v-for="played in recentlyPlayed" v-bind:key="played">
+    <div class="col-sm-4" v-for="album in recentlyPlayed" v-bind:key="album.title">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"> {{ played.name }} </h3>
+          <h3 class="panel-title"> {{ album.name }} </h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body"> <!-- {{ album.images[1].url }} -->
         </div>
+      </div>
+      <div v-for="artist in album.artists" v-bind:key="artist.id">
+        {{ artist.name }}
       </div>
     </div>
     <div class="col-sm-12">

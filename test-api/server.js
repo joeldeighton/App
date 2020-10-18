@@ -32,7 +32,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQBCKuhK7CxcYF-a3EP5LZQQhjnKJR70P6ywf-J8D7Fi0RZywCof4y7FTGdQHngh7PifrCuPvLWeAH_1YD6Tr45QoiwAWr5v4RONvjEDwBa8anZpx7co6eXUTVvkVD1uQMZClr1jerpw_0hvGEY4jL8ew9GvJcdW4Hrw4LgkWBajW_0');
+spotifyApi.setAccessToken('BQCP4hb8A3oBl4avBvvJv5Xi6ZIwrJSRierfjaWte8qFyyThNsPaTBvsJ9GHTwm-YQOKj7tebyonr_bIrERskYxCFmgriQylKG4_JAIt4u5JY6ykvJj0OS0wsxI9brJrRnpHPGfh6DybqeWaqztqvLQZNDK1Onxcb_d974XnbvUl0-M');
 /* end spotify stuff */
 
 app.get('/api/songs/tracks', (req, res) => {
@@ -65,7 +65,7 @@ app.get('/api/songs/recently-played', (req, res) => {
     limit : 20
   }).then(function(data) {
     let played = data.body.items;
-      played.forEach(item => res.json(item.track));
+      played.forEach(item => res.json(item));
     }, function(err) {
       res.json('Something went wrong with recently played!', err);
   });
