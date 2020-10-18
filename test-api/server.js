@@ -32,7 +32,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('');
+spotifyApi.setAccessToken('BQBCKuhK7CxcYF-a3EP5LZQQhjnKJR70P6ywf-J8D7Fi0RZywCof4y7FTGdQHngh7PifrCuPvLWeAH_1YD6Tr45QoiwAWr5v4RONvjEDwBa8anZpx7co6eXUTVvkVD1uQMZClr1jerpw_0hvGEY4jL8ew9GvJcdW4Hrw4LgkWBajW_0');
 /* end spotify stuff */
 
 app.get('/api/songs/tracks', (req, res) => {
@@ -42,7 +42,7 @@ app.get('/api/songs/tracks', (req, res) => {
     let tracks = data.body.items;
     res.json(tracks);
   }, function(err) {
-    res.json('Something went wrong!', err);
+    res.json('Something went wrong with tracks!', err);
   });
 
 })
@@ -54,7 +54,7 @@ app.get('/api/songs/artists', (req, res) => {
     let artists = data.body.items;
     res.json(artists);
   }, function(err) {
-    res.json('Something went wrong!', err);
+    res.json('Something went wrong with artists!', err);
   });
 
 })
@@ -67,7 +67,7 @@ app.get('/api/songs/recently-played', (req, res) => {
     let played = data.body.items;
       played.forEach(item => res.json(item.track));
     }, function(err) {
-      res.json('Something went wrong!', err);
+      res.json('Something went wrong with recently played!', err);
   });
 
 })
