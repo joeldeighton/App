@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '@/components/Home'
 import Tracks from '@/components/Tracks'
 import Artists from '@/components/Artists'
 import RecentlyPlayed from '@/components/RecentlyPlayed'
-import Home from '@/components/Home'
+import Recommendations from '@/components/Recommendations'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/recently-played',
       name: 'RecentlyPlayed',
       component: RecentlyPlayed
+    },
+    {
+      path: '/recommendations',
+      name: 'Recommendations',
+      component: Recommendations
     }
   ]
 })

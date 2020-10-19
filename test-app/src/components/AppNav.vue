@@ -5,6 +5,7 @@
       <router-link to="/tracks" class="navbar-brand">Top Tracks</router-link>
       <router-link to="/artists" class="navbar-brand">Top Artists</router-link>
       <router-link to="/recently-played" class="navbar-brand">Recently Played</router-link>
+      <router-link to="/recommendations" class="navbar-brand">Recommendations</router-link>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li>

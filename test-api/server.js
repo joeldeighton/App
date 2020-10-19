@@ -32,11 +32,11 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQCP4hb8A3oBl4avBvvJv5Xi6ZIwrJSRierfjaWte8qFyyThNsPaTBvsJ9GHTwm-YQOKj7tebyonr_bIrERskYxCFmgriQylKG4_JAIt4u5JY6ykvJj0OS0wsxI9brJrRnpHPGfh6DybqeWaqztqvLQZNDK1Onxcb_d974XnbvUl0-M');
+spotifyApi.setAccessToken('');
 /* end spotify stuff */
 
+// Gets the user's top tracks.
 app.get('/api/songs/tracks', (req, res) => {
-
   spotifyApi.getMyTopTracks()
   .then(function(data) {
     let tracks = data.body.items;
@@ -44,11 +44,10 @@ app.get('/api/songs/tracks', (req, res) => {
   }, function(err) {
     res.json('Something went wrong with tracks!', err);
   });
-
 })
 
+// Gets the user's top artists.
 app.get('/api/songs/artists', (req, res) => {
-
   spotifyApi.getMyTopArtists()
   .then(function(data) {
     let artists = data.body.items;
@@ -56,20 +55,31 @@ app.get('/api/songs/artists', (req, res) => {
   }, function(err) {
     res.json('Something went wrong with artists!', err);
   });
-
 })
 
+// Gets the user's recently played tracks.
 app.get('/api/songs/recently-played', (req, res) => {
-
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
-    let played = data.body.items;
-      played.forEach(item => res.json(item));
+      data.body.items.forEach(item => res.json(item.track));
     }, function(err) {
       res.json('Something went wrong with recently played!', err);
-  });
+    });
+})
 
+// Get Recommendations Based on Seeds
+app.get('/api/songs/recommendations', (req, res) => {
+  spotifyApi.getRecommendations({
+    min_energy: 0.4,
+    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4'],
+    min_popularity: 20
+  }).then(function(data) {
+      let recommendations = data.body;
+      res.json(recommendations);
+    }, function(err) {
+      res.json("Something went wrong with recommendations!", err);
+  });
 })
 
 app.listen(3333);
