@@ -3,7 +3,7 @@
     <app-nav></app-nav>
     <h3 class="text-center">Recommendations</h3>
     <hr/>
-    <div class="col-sm-4" v-for="tracks in recommendations" v-bind:key="tracks.artists">
+    <div class="col-sm-4" v-for="tracks in recommendations" v-bind:key="tracks">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"> {{ tracks }} </h3>
