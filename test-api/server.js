@@ -32,7 +32,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('');
+spotifyApi.setAccessToken('BQD5dnx2csDr7ioGxLPOGnrQFdOMKHh3B1VA4AfJYShHj09r9jBojGfFrz6u66Z9IaBP1_SsO4kwaHEffkbT79xqT13pLNqGpTt08cnlmdVzAQ8OW5C7A9pq9SYekRoppakrvdd8atF25roB9KW2xJnKQ8MrJaeFVjctU4CjCfirz0N0wLk');
 /* end spotify stuff */
 
 // Gets the user's top tracks.
@@ -62,7 +62,9 @@ app.get('/api/songs/recently-played', (req, res) => {
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
-      data.body.items.forEach(item => res.json(item.track));
+      let played = data.body.items;
+      played.forEach(item => (item.track));
+      res.json(played);
     }, function(err) {
       res.json('Something went wrong with recently played!', err);
     });

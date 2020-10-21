@@ -6,12 +6,12 @@
     <div class="col-sm-4" v-for="tracks in recommendations" v-bind:key="tracks.artists">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"> {{ "tracks.album.artists.name" }} </h3>
+          <h3 class="panel-title"> {{ tracks }} </h3>
         </div>
         <div class="panel-body"> {{ "tracks.album.images[1].url" }}
         </div>
       </div>
-        {{ "artist(s)" }}
+        {{ tracks.artists }}
     </div>
     <div class="col-sm-12">
     </div>
