@@ -3,16 +3,16 @@
     <app-nav></app-nav>
     <h3 class="text-center">Recommendations</h3>
     <hr/>
-    <div class="col-sm-4" v-for="tracks in recommendations" v-bind:key="tracks">
+    <div class="col-sm-4" v-for="songs in recommendations" v-bind:key="songs.name">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"> {{ tracks }} </h3>
+          <h3 class="panel-title"> {{ songs }} </h3>
         </div>
-        <div class="panel-body"> {{ "tracks.album.images[1].url" }}
+        <div class="panel-body"> {{ songs.tracks.album.images[1].url }}
         </div>
       </div>
         {{ tracks.artists }}
-    </div>
+      </div>
     <div class="col-sm-12">
     </div>
   </div>
