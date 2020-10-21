@@ -8,7 +8,7 @@
         <div class="panel-heading">
           <h3 class="panel-title"> {{ song.track.album.name }} </h3>
         </div>
-        <div class="panel-body"> {{ "album.images[1].url" }}
+        <div class="panel-body"> {{ song.track.album.images[1].url }}
         </div>
       </div>
         {{ song.track.name }}
