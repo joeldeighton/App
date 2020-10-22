@@ -8,11 +8,13 @@
         <div class="panel-heading">
           <h3 class="panel-title"> {{ songs }} </h3>
         </div>
-        <div class="panel-body"> {{ songs.tracks.album.images[1].url }}
+        <div class="panel-body"> {{ "songs.tracks.album.images[1].url" }}
         </div>
       </div>
-        {{ tracks.artists }}
+      <div v-for="artist in songs.tracks" v-bind:key="artist.name">
+          {{ "artist.name" }}
       </div>
+    </div>
     <div class="col-sm-12">
     </div>
   </div>
