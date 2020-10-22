@@ -9,9 +9,6 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // data: {
-  //   image: 'song.album.images[1].url'
-  // },
   router,
   components: { App },
   template: '<App/>'
