@@ -12,9 +12,9 @@
           <img v-bind:src="song.album.images[1].url" height="300" width="300">
         </div>
       </div>
-      <div v-for="artist in song.artists" v-bind:key="artist.name">
-          {{ artist.name }}
-      </div>
+      <!-- <span v-for="artist in song.artists" v-bind:key="artist.name">
+        {{ artist.name }}
+      </span> -->
     </div>
     <div class="col-sm-12">
     </div>
