@@ -8,7 +8,8 @@
         <div class="panel-heading">
           <h3 class="panel-title"> {{ artist.name }} </h3>
         </div>
-        <div class="panel-body"> {{ artist.images[1].url }}
+        <div class="panel-body">
+          <img v-bind:src="artist.images[1].url">
         </div>
       </div>
     </div>
