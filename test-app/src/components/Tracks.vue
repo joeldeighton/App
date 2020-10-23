@@ -8,7 +8,7 @@
         <div class="panel-heading">
           <h3 class="panel-title"> {{ song.name }} </h3>
         </div>
-        <div class="panel-body">
+        <div class="container-fluid">
           <img v-bind:src="song.album.images[1].url" height="300" width="300">
         </div>
       </div>

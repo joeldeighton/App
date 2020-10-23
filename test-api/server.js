@@ -32,7 +32,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQAWoogYsb22G7PXrFFTcVftquRdOHhRw8ICoL1mjSH41GQSbBZv4KjCGyBvFx4Ha3fkz2HZ6UnHlDCQmvNwijhhUQvOx0e6zy_Q9vMDkaBW3tD3fVyJsrRqaNTCnyw7QcUmdmYH1etdDitx93ZoZplzSWR_5_b15jtWrYmGM-KT9zJMWLk');
+spotifyApi.setAccessToken('BQB-bU7r4oLpJ1CdYFiIsdSzKPf5TNPAUpnx5CeJnSSw3b_CIIJu2_rYmZXmiraJPbJ5myjaxZJwbzwoJj9MriZf2QOmjnpjbHye4t67efVnMrjNc589yLcwoEqOHf-W10IdqmUhMWoLxxzZMQPP2WcHUJtsEoc_pPcJ1WXYNK1JqZqg0R8');
 /* end spotify stuff */
 
 // Gets the user's top tracks.
