@@ -3,7 +3,6 @@
     <app-nav></app-nav>
     <h3 class="text-center">Top Tracks</h3>
     <hr/>
-
     <div class="container">
       <div class="row">
         <div class="col-sm-4" v-for="song in topTracks" v-bind:key="song.name">
@@ -16,13 +15,6 @@
             </div>
             <div>
               <img class="img-responsive" v-bind:src="song.album.images[0].url">
-              <!-- you could also pick your image like this, iterative over the array and evaluating a property (like width==640):
-              <span v-for="img in song.album.images" v-bind:key="img.id">
-                <span v-if="img.width=='640'">Yes
-                  <img class="img-responsive" v-bind:src="img.url">
-                </span>
-              </span>
-              -->
             </div>
           </div>
         </div>
