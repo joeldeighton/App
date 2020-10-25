@@ -3,19 +3,22 @@
     <app-nav></app-nav>
     <h3 class="text-center">Recommendations</h3>
     <hr/>
-    <div class="col-sm-4" v-for="songs in recommendations" v-bind:key="songs.name">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"> {{ "songs.tracks.album.name" }} </h3>
-        </div>
-        <div class="panel-body"> {{ "songs.tracks.album.images[1].url" }}
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-4" v-for="song in recommendations" v-bind:key="song.name">
+          <div class="panel panel-default">
+            <div class="panel-heaing">
+              <h3 class="panel-title"> {{ "song.tracks.name" }} </h3>
+              <span v-for="artist in song.tracks.artists" v-bind:key="artist.id">
+                <a v-bind:href="artist.external_urls.spotify" target="new"> {{ "artist.name" }} </a>
+              </span>
+            </div>
+            <div>
+              <img class="img-responsive" v-bind:src="song.tracks.album.images[0].url">
+            </div>
+          </div>
         </div>
       </div>
-      <div v-for="artist in songs.tracks" v-bind:key="artist.name">
-          {{ "artist.name" }}
-      </div>
-    </div>
-    <div class="col-sm-12">
     </div>
   </div>
 </template>
