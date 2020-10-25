@@ -14,7 +14,7 @@
               </span> -->
             </div>
             <div>
-              <!-- <img class="img-responsive" v-bind:src="song.images[0].url"> -->
+              <img class="img-responsive" v-bind:src="song.album.images[0].url">
             </div>
           </div>
         </div>
