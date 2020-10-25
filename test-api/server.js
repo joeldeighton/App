@@ -14,6 +14,7 @@ app.use(cors());
 /* spotify stuff */
 var SpotifyWebApi = require('spotify-web-api-node');
 const { json } = require('body-parser');
+const { response } = require('express');
 
 var scopes = ['user-top-read', 'user-read-recently-played'],
   redirectUri = 'http://localhost:8888/callback',
@@ -32,33 +33,36 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQB-bU7r4oLpJ1CdYFiIsdSzKPf5TNPAUpnx5CeJnSSw3b_CIIJu2_rYmZXmiraJPbJ5myjaxZJwbzwoJj9MriZf2QOmjnpjbHye4t67efVnMrjNc589yLcwoEqOHf-W10IdqmUhMWoLxxzZMQPP2WcHUJtsEoc_pPcJ1WXYNK1JqZqg0R8');
+spotifyApi.setAccessToken('BQDTl9dLVSbgE37e-3zSscAiSO-1NqiL-8M5mb9dYVbePHKTejF8Akf0YpRl0sfhyjy-xDm7oONKuzljv9cGjQYsxlASzh1XoQfs6cZsYCpgxoRjMtHKpO3Tbz3-LAcSeogTA4mt6iQMiMuPYJmjBEm32t44owDvxzx9N7ys1BoEiiXClvs');
 /* end spotify stuff */
 
 // Gets the user's top tracks.
 app.get('/api/songs/tracks', (req, res) => {
+  console.log('The call to api/songs/tracks received.');
   spotifyApi.getMyTopTracks()
   .then(function(data) {
     let tracks = data.body.items;
     res.json(tracks);
   }, function(err) {
-    res.json('Something went wrong with tracks!', err);
+    console.log('Something went wrong with tracks!', err);
   });
 })
 
 // Gets the user's top artists.
 app.get('/api/songs/artists', (req, res) => {
+  console.log('The call to api/songs/artists was received.');
   spotifyApi.getMyTopArtists()
   .then(function(data) {
     let artists = data.body.items;
     res.json(artists);
   }, function(err) {
-    res.json('Something went wrong with artists!', err);
+    console.log('Something went wrong with artists!', err);
   });
 })
 
 // Gets the user's recently played tracks.
 app.get('/api/songs/recently-played', (req, res) => {
+  console.log('The call to api/songs/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
@@ -66,12 +70,13 @@ app.get('/api/songs/recently-played', (req, res) => {
       played.forEach(item => (item.track));
       res.json(played);
     }, function(err) {
-      res.json('Something went wrong with recently played!', err);
+      console.log('Something went wrong with recently played!', err);
     });
 })
 
 // Get Recommendations Based on Seeds
 app.get('/api/songs/recommendations', (req, res) => {
+  console.log('The call to api/songs/recommendations was received.');
   spotifyApi.getRecommendations({
     min_energy: 0.4,
     seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4'],
@@ -80,7 +85,7 @@ app.get('/api/songs/recommendations', (req, res) => {
       let recommendations = data.body;
       res.json(recommendations);
     }, function(err) {
-      res.json("Something went wrong with recommendations!", err);
+      console.log("Something went wrong with recommendations!", err);
   });
 })
 
