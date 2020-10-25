@@ -33,7 +33,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQA96kvwYShqu_6fQrVXAZBz9LbedHQiKJBBbLBvcBnua1kkPPO4ClKxdVsSD2SxvWI9XJ_-uyEe34FrMvdsCV-CAd6hXUusmeTm-4tJklX6Tg7rh-mut4k_kZbvtVBwKa6ZxHHf9Ci85WPRnesmiPlJQxbQ2kHatd7KCM6t6Os22eyf9Q8');
+spotifyApi.setAccessToken('BQDmPPehfZAWLv3ixrylSeatZaQhg3pguqUJoxKAYHtb39A-Q5rMb4GMYIQEly65bYbhnSbRrO1zKYCT0AF08QQgTiwfKb6fzGl0ROVVsXlWPlFlZtj9YOdZHCuANA7NN-2uIK7vZyhbtbDWij8FiwP-YuSzbROJiIz24lQKkTEAVPzKcqA');
 /* end spotify stuff */
 
 // Gets the user's top tracks.
@@ -74,12 +74,12 @@ app.get('/api/songs/recently-played', (req, res) => {
     });
 })
 
-// Get Recommendations Based on Seeds
+// Get Recommendations Based on Seeds (based off of top 5 artists?)
 app.get('/api/songs/recommendations', (req, res) => {
   console.log('The call to api/songs/recommendations was received.');
   spotifyApi.getRecommendations({
     min_energy: 0.4,
-    seed_artists: ['6fcTRFpz0yH79qSKfof7lp'],
+    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4', '6heMlLFM6RDDHRz99uKMqS', '60d24wfXkVzDSfLS6hyCjZ', '1l2ekx5skC4gJH8djERwh1'],
     min_popularity: 50
   }).then(function(data) {
   let recommendations = data.body;

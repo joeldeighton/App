@@ -9,9 +9,9 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title"> {{ song.name }} </h3>
-              <!-- <span v-for="artist in song.tracks" v-bind:key="artist.id">
-                <a v-bind:href="artist.external_urls.spotify" target="new">{{ artist.name }}</a>
-              </span> -->
+              <span v-for="artist in song.artists" v-bind:key="artist.id">
+                <a v-bind:href="artist.external_urls.spotify" target="new"> {{ artist.name }}</a>
+              </span>
             </div>
             <div>
               <img class="img-responsive" v-bind:src="song.album.images[0].url">
