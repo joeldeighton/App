@@ -50,4 +50,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.img-responsive {
+    width:100%;
+    max-width:1000px;
+}
 </style>
