@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-/* spotify stuff */
+/* Start Spotify */
 var SpotifyWebApi = require('spotify-web-api-node');
 const { json } = require('body-parser');
 const { response } = require('express');
@@ -33,8 +33,8 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQCZv3-xnEwog02uX8i52LYcLOw9THnBpipSH32sc8Z2qLwuTHqe6TMKcQbMiESVt2n88ZiP-LGpl-B-HvCOd_FcA5dr8NXxJJHTU1ltDMUcHVCZ92XYn04E2yQ0S_cVPq5nfSqSSTRMsrIkA5DA17_sY5zSq7pcWwc8yzwdgBQDYVCI0B0');
-/* end spotify stuff */
+spotifyApi.setAccessToken('');
+/* End Spotify */
 
 // Gets the user's top tracks.
 app.get('/api/songs/tracks', (req, res) => {
